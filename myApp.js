@@ -3,16 +3,7 @@ const helmet = require('helmet');
 const app = express();
 const bcrypt = require('bcrypt');
 
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", 'trusted-cdn.com'],
-    }
-  },
-  noCache: true
-}))
-
+app.use(helmet.hidePoweredBy());
 
 
 
