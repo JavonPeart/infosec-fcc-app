@@ -3,7 +3,7 @@ const helmet = require('helmet');
 const app = express();
 const bcrypt = require('bcrypt');
 
-app.use(helmet.hidePoweredBy());
+app.use(helmet.framgaurg({action: "deny"}));
 
 
 
