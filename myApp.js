@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 
 
-app.use(helmet.xssFilter());
+app.use(helmet.noSniff());
 
 
 
