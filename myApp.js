@@ -4,7 +4,7 @@ const app = express();
 const bcrypt = require('bcrypt');
 
 
-app.use(helmet.dnsPrefetchControl());
+app.use(helmet.noCache());
 
 const ninetyDaysInSeconds = 90 * 24 * 60 * 60;
 
