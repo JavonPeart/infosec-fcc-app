@@ -10,6 +10,35 @@ app.disable("x-powered-by");
 var fs = require("fs");
 var path = require("path");
 
+app.post('/register', async (req, res) => {
+  try {
+    // Get the user's password from the request body
+    const password = req.body.password;
+
+    // Generate a salt (typically, a new salt is generated for each user)
+    const saltRounds = 12; // You can adjust this value based on your security requirements
+    const salt = await bcrypt.genSalt(saltRounds);
+
+    // Hash the password with the salt
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Store the hashed password in your database
+    // ...
+
+    res.send('User registered successfully');
+  } catch (error) {
+    console.error('Error registering user:', error);
+    res.status(500).send('Registration failed');
+  }
+});
+
+// ... other routes and server setup ...
+
+// Start your Express server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 app.use(function (req, res, next) {
   res.set({
     "Access-Control-Allow-Origin": "*",
