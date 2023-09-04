@@ -4,7 +4,13 @@ const app = express();
 const bcrypt = require('bcrypt');
 
 
-app.use(helmet.noCache());
+const directives = {
+  defaultSrc: ["'self'"],
+  scriptSrc: ["'self'", 'trusted-cdn.com'],
+};
+
+
+app.use(helmet.contentSecurityPolicy({ directives }));
 
 const ninetyDaysInSeconds = 90 * 24 * 60 * 60;
 
