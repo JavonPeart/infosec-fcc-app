@@ -4,13 +4,6 @@ const app = express();
 const bcrypt = require('bcrypt');
 
 
-pp.use(helmet.hidePoweredBy());
-
-
-
-app.use(helmet.frameguard({ action: 'deny' }));
-
-
 
 app.use(helmet.xssFilter());
 
