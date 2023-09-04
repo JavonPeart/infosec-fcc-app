@@ -10,7 +10,6 @@ app.disable("x-powered-by");
 var fs = require("fs");
 var path = require("path");
 
-app.use(bcrypt.require());
 
 app.use(function (req, res, next) {
   res.set({
