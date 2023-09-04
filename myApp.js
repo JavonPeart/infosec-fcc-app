@@ -3,7 +3,13 @@ const helmet = require('helmet');
 const app = express();
 const bcrypt = require('bcrypt');
 
-app.use(helmet.framegaurd({action: "deny"}));
+app.use(helmet.frameguard({ action: 'deny' }));
+
+
+
+
+
+
 
 
 
